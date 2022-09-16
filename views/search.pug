@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  h2 Search results
+  table
+    tr.tableHeaders
+      for column in tableHeaders
+        th= column
+      th= 'Edit'
+      th= 'Delete'
+    for recipe in recipeList
+        tr.recipeRows
+          for column in recipe
+            - let columnIsArray = Array.isArray(column)
+            if columnIsArray
+              td
+                a(href=column[0])
+                  i.fa-regular(class=column[1])
+            else
+              td= column
+  a.homeButton(href='/')
+    button.btn.btn-primary(type='button')
+      i.fa-regular.fa-house
+      .
+        Home

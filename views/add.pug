@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  h2 Add a recipe to your #{title} collection
+  div.addRecipe
+    form.recipeForm(action='/newrecipe', method='POST')
+      input.recipeDetails(type='text', name='recipe_name', placeholder='Recipe name')
+      input.recipeDetails(type='date', name='date_brewed')
+      br
+      textarea(name='recipe', placeholder='Recipe' rows='8' cols='50')
+      br
+      textarea(name='notes', placeholder='Notes' rows='8' cols='50')
+      br
+      input.btn.btn-success(type='submit' value='Click to add!')
+      a(href='/')
+        button.btn.btn-danger(type='button')
+          i.fa-regular.fa-rectangle-xmark
+          .
+            Cancel

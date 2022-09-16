@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  h1 welcome to #{title}
+  h2 your personal homebrew database
+  div
+    form(action='/search', method='GET')
+        input.search(type='text', name='Recipe Name', placeholder='Search for a recipe...')
+    div.btn-group
+      a(href='/add')
+        button.btn.btn-success(type='button')
+          i.fa-regular.fa-pen-to-square
+          .
+            Add a new recipe
+      a(href='/manage')
+        button.btn.btn-dark(type='button')
+          i.fa-regular.fa-folder-open
+          .
+            Manage your recipes

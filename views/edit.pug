@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  h2 Make changes to your recipe
+  div.addRecipe
+    form.recipeForm(action=`/update?row=${rowNumber}`, method='POST')
+      input.recipeDetails(type='text', name='recipe_name', value=`${recipeName}`)
+      input.recipeDetails(type='date', name='date_brewed', value=`${brewDate}`)
+      br
+      textarea(name='recipe', rows='8' cols='50') #{recipeProcess}
+      br
+      textarea(name='notes', rows='8' cols='50') #{recipeNotes}
+      br
+      input.btn.btn-success(type='submit' value='Save changes')
+      a(href='/manage')
+        button.btn.btn-danger(type='button')
+          i.fa-regular.fa-rectangle-xmark
+          .
+            Cancel
